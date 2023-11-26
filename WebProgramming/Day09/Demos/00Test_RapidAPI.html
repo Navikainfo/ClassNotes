@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var data = null;
+
+      var helper = new XMLHttpRequest();
+      helper.withCredentials = true;
+
+      helper.onreadystatechange = () => {
+        if (helper.readyState == 4 && helper.status == 200) {
+          debugger;
+          var result = helper.responseText;
+        }
+      };
+
+      helper.open(
+        "GET",
+        "https://timetable-lookup.p.rapidapi.com/TimeTable/BOS/LAX/20191217"
+      );
+      helper.setRequestHeader(
+        "X-RapidAPI-Key",
+        "dbf6db6a54msh4d726395ce0b52dp163d10jsna7cfd2f22a0b"
+      );
+      helper.setRequestHeader(
+        "X-RapidAPI-Host",
+        "timetable-lookup.p.rapidapi.com"
+      );
+
+      helper.send(data);
+    </script>
+  </body>
+</html>

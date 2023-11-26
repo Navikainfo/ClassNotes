@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1
+      //-----Writing Normal Function & returning content
+      //-----Every JS function always returns something
+      //-----either its what developer decides
+      //-----OR
+      //-----it is undefined
+
+      //   function SayHi(name) {
+      //     return "Hello" + name;
+      //   }
+
+      //   var result = SayHi("Mahesh");
+      //   console.log(result);
+      //-------------------------------------------
+
+      // 2
+      //--------- A function can be stored in variable
+      //   function SayHi(name) {
+      //     console.log("Hello " + name);
+      //   }
+
+      //   var SayHi = function (name) {
+      //     console.log("Hello " + name);
+      //   };
+
+      //   SayHi("mahesh");
+      //   debugger;
+      //   console.log(typeof SayHi);
+
+      //-------------------------------------------
+
+      // 3
+      //-----Class writing: using Literal Syntax-----
+
+      //   var Person = {
+      //     No: 1,
+      //     Name: "Mahesh",
+      //     Print: function () {
+      //       console.log(this.No + this.Name);
+      //     },
+      //   };
+
+      //   Person.Print();
+
+      //   Person.Name = "Nilesh";
+      //   Person.Print();
+
+      //   var Employee = {};
+      //   Employee.__proto__ = Person;
+      //   Employee.Print();
+      //   console.log(Employee.toString());
+
+      //-------------------------------------------
+
+      // 4
+      //-----Class writing: ----------------------
+      //-----using Constructor Function Syntax------
+
+      //   var Person = function (no, name, address) {
+      //     this.No = no;
+      //     this.Name = name;
+      //     this.Address = address;
+
+      //     this.Print = function () {
+      //       console.log(this.No + this.Name + this.Address);
+      //     };
+      //   };
+      //   var p1 = new Person(1, "mahesh", "pune");
+      //   p1.Print();
+
+      //   var p2 = new Person(2, "nilesh", "chennai");
+      //   p2.Print();
+
+      // 5
+      //-----Class writing: ----------------------
+      //-----using Class Syntax (ECMA 6)------
+
+      //   class Person {
+      //     constructor(no, name, address) {
+      //       this.No = no;
+      //       this.Name = name;
+      //       this.Address = address;
+      //     }
+      //     Print() {
+      //       console.log(this.No + this.Name + this.Address);
+      //     }
+      //   }
+
+      //   var p1 = new Person(1, "mahesh", "pune");
+      //   p1.Print();
+
+      //   var p2 = new Person(2, "nilesh", "chennai");
+      //   p2.Print();
+
+      //   class Employee extends Person {
+      //     constructor(no, name, address, dept) {
+      //       super(no, name, address);
+      //       this.Dept = dept;
+      //     }
+
+      //     Print() {
+      //       super.Print();
+      //       console.log(this.Dept);
+      //     }
+      //   }
+
+      //   var e1 = new Employee(3, "sameer", "mumbai", "IT");
+      //   e1.Print();
+
+      // 6
+      //Function passed as a parameter
+      //------------------------------------------
+
+      //   function DoSomething(no, F1, F2) {
+      //     debugger;
+      //     if (no > 10) {
+      //       F1();
+      //     } else {
+      //       F2();
+      //     }
+      //   }
+
+      //   function success() {
+      //     console.log("no is greater than 10");
+      //   }
+
+      //   function failure() {
+      //     console.log("no is smaller than 10");
+      //   }
+
+      //   function p() {
+      //     console.log("GRT");
+      //   }
+      //   function q() {
+      //     console.log("NOT GRT");
+      //   }
+      //   DoSomething(4, success, failure);
+      //   DoSomething(45, p, q);
+
+      // 7
+      //Function returned from a function
+      //--------------------------------------
+      //   function GetMeDrink(temp) {
+      //     var drink = null;
+
+      //     if (temp > 30) {
+      //       drink = function () {
+      //         console.log("coke");
+      //       };
+      //     } else {
+      //       drink = function () {
+      //         console.log("tea");
+      //       };
+      //     }
+
+      //     return drink;
+      //   }
+
+      //   //   var fn = function () {
+      //   //         console.log("tea");
+      //   //       };
+      //   var fn = GetMeDrink(20);
+      //   fn();
+    </script>
+  </body>
+</html>

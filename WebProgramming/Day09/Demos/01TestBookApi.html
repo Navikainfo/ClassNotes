@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      Book Details : <input type="text" id="txtSearch" />
+      <input type="button" value="Search" onclick="DoSearch()" />
+      <br />
+      <hr />
+
+      <table style="width: 400px; text-align: center" border="1">
+        <thead>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Cover Page</th>
+        </thead>
+        <tbody id="bookTableBody"></tbody>
+      </table>
+    </center>
+
+    <script>
+      function DoSearch() {
+        var refToTableBody = document.getElementById("bookTableBody");
+
+        var refToTextBox = document.getElementById("txtSearch");
+
+        var bookDetails = refToTextBox.value;
+        var urlpart = "https://www.googleapis.com/books/v1/volumes?q=";
+
+        var url = urlpart + bookDetails;
+
+        var helper = new XMLHttpRequest();
+        helper.onreadystatechange = () => {
+          if (helper.readyState == 4 && helper.status == 200) {
+            var result = JSON.parse(helper.responseText);
+
+            refToTableBody.innerHTML = "";
+
+            for (var i = 0; i < result.items.length; i++) {
+              var row = `<tr>
+                            <td>${result.items[i].volumeInfo.title}</td>
+                            <td>${result.items[i].volumeInfo.authors}</td>
+                            <td>
+                            <img
+                                src="${result.items[i].volumeInfo.imageLinks.smallThumbnail}"
+                                height="100px"
+                                width="100px"
+                            />
+                            </td>
+                        </tr>`;
+
+              refToTableBody.innerHTML = refToTableBody.innerHTML + row;
+            }
+            debugger;
+          }
+        };
+        helper.open("GET", url);
+        helper.send();
+      }
+    </script>
+  </body>
+</html>

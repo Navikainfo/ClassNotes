@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //-----------------------------------------
+      //8 - Hoisting in Javascript - V1
+      //-----------------------------------------
+      //   console.log(i);
+      //   var i = 100;
+      //   console.log(i);
+
+      //   var i = undefined;
+      //   console.log(i);
+      //   i = 100;
+      //   console.log(i);
+
+      //-----------------------------------------
+      //8 - Hoisting in Javascript - V2
+      //-----------------------------------------
+
+      //   //v();     // this iswhere u will get err
+      //   var v = function () {
+      //     console.log("hi");
+      //   };
+      //   v();
+
+      //9: ECMA6 Features
+      //a) let & const
+
+      //----------------------------- let
+      //   var counter = 0;
+
+      //   function KeepCounting() {
+      //     counter = counter + 1;
+      //     console.log(`inside keep counting counter = ${counter}`);
+
+      //     var InnerFunction = function () {
+      //       let counter = 10;
+      //       console.log(`inside InnerFunction counter = ${counter}`);
+      //     };
+
+      //     InnerFunction();
+      //   }
+
+      //   KeepCounting();
+
+      //   console.log(`Outside KeepCounting Counter = ${counter}`);
+
+      //----------------------------- const
+      //   const v = function () {
+      //     console.log("hello! hi!");
+      //   };
+
+      //   v = 100; //Error here!
+
+      //   v();
+
+      //b) ... operator or spread opearator
+
+      //---------------- Copying Reference
+      //   var p1 = { No: 1, Name: "Mahesh" };
+      //   p2 = p1;
+      //   console.log(`p1 No=${p1.No}, Name=${p1.Name}`);
+      //   console.log(`p2 No=${p2.No}, Name=${p2.Name}`);
+
+      //   p2.Name = "Nilesh";
+      //   console.log(`p1 No=${p1.No}, Name=${p1.Name}`);
+      //   console.log(`p2 No=${p2.No}, Name=${p2.Name}`);
+
+      //---------------- Copying Object Via {...}
+      //   var p1 = { No: 1, Name: "Mahesh" };
+      //   var p2 = { ...p1 };
+
+      //   console.log(`p1 No=${p1.No}, Name=${p1.Name}`);
+      //   console.log(`p2 No=${p2.No}, Name=${p2.Name}`);
+
+      //   p2.Name = "Nilesh";
+      //   console.log(`p1 No=${p1.No}, Name=${p1.Name}`);
+      //   console.log(`p2 No=${p2.No}, Name=${p2.Name}`);
+
+      //------------ Copying Object Via {..., key:val}
+      //   var p1 = { No: 1, Name: "Mahesh" };
+      //   var p2 = { ...p1, Name: "Nilesh" };
+
+      //   console.log(`p1 No=${p1.No}, Name=${p1.Name}`);
+      //   console.log(`p2 No=${p2.No}, Name=${p2.Name}`);
+
+      //appending array using ...
+      //   var nos = [1, 2, 3, 4, 5];
+      //   var days = ["mon", "tue", "wed"];
+
+      //   var clubed =
+      //        [230, 567, ...nos, 999, ...days];
+
+      //   console.log(clubed);
+
+      //---------------------------------------------
+
+      //c) template literal ${} (done in bookapidemo)
+      //d) arrow function () => {  } like lambada fun
+      //                        (done in XHR)
+      //e) class keyword for defining classes
+      //                        (done today)
+      //f) Array Functions like map,filter etc
+
+      //   var DoSomethingForEachDay = (day) => {
+      //     console.log("welcome to " + day);
+      //   };
+
+      var DoSomethingForEachDay = (day) => {
+        console.log("welcome to " + day);
+      };
+
+      var days = ["monday", "tuesday", "wednesday"];
+
+      //Map(days, DoSomethingForEachDay);
+
+      //   Map(days, (day) => {
+      //     console.log("welcome to " + day);
+      //   });
+
+      days.map((day) => {
+        console.log("welcome to " + day);
+      });
+
+      function Map(someArray, somefunction) {
+        for (var i = 0; i < someArray.length; i++) {
+          somefunction(someArray[i]);
+        }
+      }
+
+      //   var DoSomethingForEachDay = function (day) {
+      //     console.log("welcome to " + day);
+      //   };
+
+      //   function DoSomethingForEachDay(day) {
+      //     //imagine heavy logic
+      //     console.log("welcome to " + day);
+      //   }
+    </script>
+  </body>
+</html>
